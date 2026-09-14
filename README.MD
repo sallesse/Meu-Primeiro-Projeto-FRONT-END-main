@@ -65,7 +65,7 @@ pip install flask
 Execute o arquivo responsável pela criação/população do banco:
 
 ```bash
-python cadastro_sqlite.py
+python dados_iniciais.py
 ```
 
 ### 5. Subir a aplicação
