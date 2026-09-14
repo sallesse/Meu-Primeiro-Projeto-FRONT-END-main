@@ -65,6 +65,7 @@ pip install flask
 Execute o arquivo responsável pela criação/população do banco:
 
 ```bash
+mkdir dados
 python dados_iniciais.py
 ```
 
