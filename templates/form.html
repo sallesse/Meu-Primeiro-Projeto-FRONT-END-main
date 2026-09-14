@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block titulo %}{{ titulo }}{% endblock %}
+
+{% block conteudo %}
+<h2>{{ titulo }}</h2>
+
+<form method="post" action="{{ acao }}">
+  <p>
+    <label>Cliente:
+      <input type="text" name="cliente" value="{{ dados.get('cliente', '') }}">
+    </label>
+    {% if erros.cliente %}<br><span class="erro">{{ erros.cliente }}</span>{% endif %}
+  </p>
+  <p>
+    <label>Marca:
+      <input type="text" name="marca" value="{{ dados.get('marca', '') }}">
+    </label>
+    {% if erros.marca %}<br><span class="erro">{{ erros.marca }}</span>{% endif %}
+  </p>
+  <p>
+    <label>Modelo:
+      <input type="text" name="modelo" value="{{ dados.get('modelo', '') }}">
+    </label>
+    {% if erros.modelo %}<br><span class="erro">{{ erros.modelo }}</span>{% endif %}
+  </p>
+  <p>
+    <label>Placa:
+      <input type="text" name="placa" value="{{ dados.get('placa', '') }}">
+    </label>
+    {% if erros.placa %}<br><span class="erro">{{ erros.placa }}</span>{% endif %}
+  </p>
+  <p>
+    <label>Cor:
+      <input type="text" name="cor" value="{{ dados.get('cor', '') }}">
+    </label>
+    {% if erros.cor %}<br><span class="erro">{{ erros.cor }}</span>{% endif %}
+  </p>
+  <button type="submit">Salvar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+  {% if registros|length == 0 %}
+<p>Nenhum serviço cadastrado ainda.</p>
+  {% else %}
+<p>{{ registros|length }} serviço(s) no banco.</p>
+<p><b>Total faturado:</b> R$ {{ "%.2f"|format(total) }}</p>
+<p><a href="{{ url_for('novo_servico') }}">Cadastrar novo serviço</a></p>
+<ul>
+      {% for s in registros %}
+<li>
+  {{ s['descricao'] }} — R$ {{ "%.2f"|format(s['valor']) }}
+  (<a href="{{ url_for('detalhe', id_veiculo=s['veiculo_id']) }}">{{ s['cliente'] }} — {{ s['placa'] }}</a>)
+  em {{ s['data_servico'] }}
+  &nbsp;|&nbsp;
+  <a href="{{ url_for('editar_servico', id_servico=s['id']) }}">editar</a>
+  &nbsp;
+  <form method="post" action="{{ url_for('excluir_servico', id_servico=s['id']) }}"
+        style="display:inline"
+        onsubmit="return confirm('Confirma a exclusao deste servico?');">
+    <button type="submit">excluir</button>
+  </form>
+</li>
+      {% endfor %}
+</ul>
+  {% endif %}
+{% endblock %}

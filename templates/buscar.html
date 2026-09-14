@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block titulo %}Buscar veiculo{% endblock %}
+
+{% block conteudo %}
+<h2>Buscar veiculo</h2>
+
+<form method="get" action="{{ url_for('buscar') }}">
+<input type="text" name="termo" value="{{ termo }}" placeholder="Digite o nome do cliente...">
+<button type="submit">Buscar</button>
+</form>
+
+  {% if not termo %}
+<p class="vazio">Digite um cliente para buscar.</p>
+  {% elif encontrados %}
+<p>{{ encontrados|length }} resultado(s) para "{{ termo }}":</p>
+<ul>
+      {% for p in encontrados %}
+<li>
+<a href="{{ url_for('detalhe', id_veiculo=p['id']) }}">{{ p['cliente'] }}</a>
+          — {{ p['placa'] }}
+</li>
+      {% endfor %}
+</ul>
+  {% else %}
+<p class="vazio">Nenhum veiculo encontrado com "{{ termo }}".</p>
+  {% endif %}
+{% endblock %}

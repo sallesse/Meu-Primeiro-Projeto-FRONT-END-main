@@ -1,0 +1,195 @@
+/* ===========================================
+   OFICINA DO BIEL — tema vermelho & preto
+   =========================================== */
+
+:root {
+  --preto: #0d0d0d;
+  --preto-claro: #1a1a1a;
+  --cinza: #2b2b2b;
+  --vermelho: #e0263d;
+  --vermelho-escuro: #a3182a;
+  --branco: #f5f5f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--preto);
+  color: var(--branco);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Cabeçalho */
+h1 {
+  background-color: var(--vermelho);
+  color: var(--branco);
+  margin: 0;
+  padding: 24px 32px;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 4px solid var(--vermelho-escuro);
+}
+
+h2 {
+  color: var(--vermelho);
+  border-left: 5px solid var(--vermelho);
+  padding-left: 12px;
+  margin: 32px 32px 16px;
+}
+
+h3 {
+  color: var(--branco);
+  border-bottom: 1px solid var(--cinza);
+  padding-bottom: 6px;
+  margin: 24px 32px 8px;
+}
+
+/* Navegação */
+h1 + p {
+  background-color: var(--preto-claro);
+  padding: 14px 32px;
+  margin: 0;
+  border-bottom: 2px solid var(--vermelho-escuro);
+}
+
+h1 + p a {
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 8px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1 + p a:hover {
+  background-color: var(--vermelho);
+  color: var(--branco);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--cinza);
+  margin: 24px 32px;
+}
+
+/* Conteúdo geral */
+p, ul, form {
+  margin: 16px 32px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: var(--preto-claro);
+  border-left: 3px solid var(--vermelho);
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+ul li:hover {
+  background-color: var(--cinza);
+  transform: translateX(4px);
+}
+
+/* Lista de detalhes do veiculo (sem hover de navegacao) */
+ul.detalhe li {
+  cursor: default;
+}
+
+ul.detalhe li:hover {
+  background-color: var(--preto-claro);
+  transform: none;
+}
+
+a {
+  color: var(--vermelho);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--branco);
+  text-decoration: underline;
+}
+
+/* Formulários */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--branco);
+  font-weight: bold;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px 14px;
+  border: 2px solid var(--cinza);
+  border-radius: 4px;
+  background-color: var(--preto-claro);
+  color: var(--branco);
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--vermelho);
+}
+
+button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--vermelho);
+  color: var(--branco);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--vermelho-escuro);
+}
+
+b, strong {
+  color: var(--vermelho);
+}
+
+/* Mensagens */
+.vazio {
+  color: #999;
+  font-style: italic;
+}
+
+.erro {
+  color: var(--vermelho);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.mensagem-sucesso {
+  background-color: var(--vermelho-escuro);
+  color: var(--branco);
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+}

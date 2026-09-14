@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block titulo %}{{ veiculo['cliente'] }}{% endblock %}
+
+{% block conteudo %}
+<h2>{{ veiculo['cliente'] }}</h2>
+
+<ul class="detalhe">
+<li><b>ID:</b> {{ veiculo['id'] }}</li>
+<li><b>Marca:</b> {{ veiculo['marca'] }}</li>
+<li><b>Modelo:</b> {{ veiculo['modelo'] }} </li>
+<li><b>Placa:</b> {{ veiculo['placa'] }}</li>
+<li><b>Cor:</b> {{ veiculo['cor'] }}</li>
+<li><b>Cadastrado em:</b> {{ veiculo['data_cadastro'] }}</li>
+</ul>
+
+<p><a href="{{ url_for('listar') }}">Voltar para a lista</a></p>
+{% endblock %}

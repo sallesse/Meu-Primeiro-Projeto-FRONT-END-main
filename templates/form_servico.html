@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block titulo %}{{ titulo }}{% endblock %}
+
+{% block conteudo %}
+<h2>{{ titulo }}</h2>
+
+<form method="post" action="{{ acao }}">
+
+  {% if servico %}
+    <p><b>Veiculo:</b> {{ servico['cliente'] }} — {{ servico['placa'] }}</p>
+  {% else %}
+    <p>
+      <label>Veiculo:
+        <select name="veiculo_id">
+          <option value="">-- selecione --</option>
+          {% for v in veiculos %}
+            <option value="{{ v['id'] }}">{{ v['cliente'] }} — {{ v['placa'] }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      {% if erros.veiculo_id %}<br><span class="erro">{{ erros.veiculo_id }}</span>{% endif %}
+    </p>
+  {% endif %}
+
+  <p>
+    <label>Descrição:
+      <input type="text" name="descricao" value="{{ dados.get('descricao', '') }}">
+    </label>
+    {% if erros.descricao %}<br><span class="erro">{{ erros.descricao }}</span>{% endif %}
+  </p>
+  <p>
+    <label>Valor (R$):
+      <input type="text" name="valor" value="{{ dados.get('valor', '') }}">
+    </label>
+    {% if erros.valor %}<br><span class="erro">{{ erros.valor }}</span>{% endif %}
+  </p>
+  <button type="submit">Salvar</button>
+</form>
+
+<p><a href="{{ url_for('listar_servicos') }}">Voltar para a lista de serviços</a></p>
+{% endblock %}
